@@ -33,7 +33,12 @@ Also update the WebGL template `index.html` (loaded by the sample template):
 
 ## Build & Test
 1) Build for WebGL
-- File → Build Settings → Select your scene → Switch Platform (WebGL) → Build or Build And Run
+- File → Build Settings:
+  - Add/select the imported sample scene
+  - Switch Platform to WebGL
+- Edit → Project Settings → Player → WebGL → Publishing Settings:
+  - Compression Format: Disabled (no Gzip/Brotli)
+- Build or Build And Run
 
 2) Interact
 - In the browser, use the top-left buttons (Connect / Disconnect / Sign)
