@@ -49,8 +49,6 @@ namespace Gamenator.Web3OnboardUnity.Editor
 "    /// </summary>\n" +
 "    public class Web3Bridge : MonoBehaviour\n" +
 "    {\n" +
-"        [SerializeField] private bool _setUnityInstanceOnStart = true;\n" +
-"\n" +
 "        /// <summary>Initialize OnboardWalletBridge (must be called before connect/sign).</summary>\n" +
 "        public void Initialize(string initOptionsJson)\n" +
 "        {\n" +
@@ -144,16 +142,6 @@ namespace Gamenator.Web3OnboardUnity.Editor
 "        {\n" +
 "            Debug.Log($\"[Web3Bridge] OnSignMessageResult => {json}\");\n" +
 "        }\n" +
-"\n" +
-"        #region UNITY CALLBACKS\n" +
-"        private void Start()\n" +
-"        {\n" +
-"            if (_setUnityInstanceOnStart)\n" +
-"            {\n" +
-"                Web3OnboardJsBridge.SetUnityInstance(gameObject.name);\n" +
-"            }\n" +
-"        }\n" +
-"        #endregion\n" +
 "    }\n" +
 "}\n";
         }
