@@ -73,7 +73,19 @@ import walletConnectModule from '@web3-onboard/walletconnect'
     // Unity wiring
     if (options.unity?.instance) unityInstance = options.unity.instance
     if (options.unity?.gameObjectName) unityGameObjectName = String(options.unity.gameObjectName)
-    if (options.theme) applyTheme(options.theme)
+    // Theme: apply provided or defaults
+    if (options.theme) {
+      applyTheme(options.theme)
+    } else {
+      applyTheme({
+        '--w3o-background-color': '#1a1d26',
+        '--w3o-foreground-color': '#242835',
+        '--w3o-text-color': '#eff1fc',
+        '--w3o-border-color': '#33394b',
+        '--w3o-action-color': '#929bed',
+        '--w3o-border-radius': '16px'
+      })
+    }
 
     // Wallet modules
     const wallets = Array.isArray(options.wallets) && options.wallets.length > 0
@@ -115,16 +127,19 @@ import walletConnectModule from '@web3-onboard/walletconnect'
     return onboardInstance
   }
 
-  function ensureOnboard(options) {
-    return onboardInstance || init(options)
+  function requireOnboard() {
+    if (!onboardInstance) {
+      throw new Error('OnboardWalletBridge is not initialized. Call OnboardWalletBridge.init(...) first.')
+    }
+    return onboardInstance
   }
 
   /**
    * Connect via Web3-Onboard and notify Unity
    * @param {Object} [options]
    */
-  async function connect(options) {
-    const onboard = ensureOnboard(options)
+  async function connect() {
+    const onboard = requireOnboard()
     try {
       const wallets = await onboard.connectWallet()
       lastWallet = wallets?.[0] || null
@@ -143,7 +158,7 @@ import walletConnectModule from '@web3-onboard/walletconnect'
    * Disconnect all connected wallets and notify Unity
    */
   async function disconnect() {
-    const onboard = ensureOnboard()
+    const onboard = requireOnboard()
     try {
       const state = onboard.state.get()
       for (const w of state.wallets) {
@@ -187,18 +202,8 @@ import walletConnectModule from '@web3-onboard/walletconnect'
     unityInstance = instance || null
   }
 
-  // Default theme (can be overridden via init({ theme }))
-  applyTheme({
-    '--w3o-background-color': '#1a1d26',
-    '--w3o-foreground-color': '#242835',
-    '--w3o-text-color': '#eff1fc',
-    '--w3o-border-color': '#33394b',
-    '--w3o-action-color': '#929bed',
-    '--w3o-border-radius': '16px'
-  })
-
-  // Expose full API on the configured global and a minimal WalletBridge alias
-  window.Web3OnboardUnityBundle = {
+  // Expose API on a single global: OnboardWalletBridge
+  window.OnboardWalletBridge = {
     init,
     connect,
     disconnect,
@@ -207,13 +212,6 @@ import walletConnectModule from '@web3-onboard/walletconnect'
     getUnity,
     sendToUnity,
     applyTheme
-  }
-
-  // Minimal alias expected by Unity templates
-  window.WalletBridge = {
-    connect: () => connect(),
-    signMessage: (m) => signMessage(m),
-    disconnect: () => disconnect()
   }
 })();
 
