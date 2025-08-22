@@ -106,10 +106,10 @@ import walletConnectModule from '@web3-onboard/walletconnect'
       ? options.chains
       : [
           {
-            id: '0x1',
+            id: '0x2105',
             token: 'ETH',
-            label: 'Ethereum Mainnet',
-            rpcUrl: 'https://rpc.ankr.com/eth'
+            label: 'Base',
+            rpcUrl: 'https://mainnet.base.org'
           }
         ]
 
