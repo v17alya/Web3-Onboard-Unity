@@ -7,9 +7,25 @@
 ## Install the package (UPM)
 Use one of the standard UPM methods:
 
-- Add from Git URL: `https://github.com/v17alya/Web3-Onboard-Unity.git?path=Assets/com.gamenator.web3-onboard-unity#v0.1.0`
+- Add from Git URL (latest): `https://github.com/v17alya/Web3-Onboard-Unity.git?path=Assets/com.gamenator/web3-onboard-unity#main`
+  - Or pin to a specific tag for reproducibility: replace `#main` with `#v0.1.0`
 - Add from disk: Package Manager → Add package from disk… → select `Assets/com.gamenator.web3-onboard-unity/package.json`
 - Edit `Packages/manifest.json` dependencies to include the Git URL above
+
+### Optional: install via npm registry
+If published to npm:
+1) Add a scoped registry and dependency in `Packages/manifest.json`:
+```json
+{
+  "scopedRegistries": [
+    { "name": "npmjs", "url": "https://registry.npmjs.org", "scopes": ["com.gamenator"] }
+  ],
+  "dependencies": {
+    "com.gamenator.web3-onboard-unity": "latest"
+  }
+}
+```
+2) Or Package Manager → + → Add package by name… → Name: `com.gamenator.web3-onboard-unity`, Version: `latest` or a pinned version.
 
 ## Quick start (use the included sample)
 1) Import the sample
@@ -56,4 +72,4 @@ Unity receives callbacks via `SendMessage` to your GameObject (default in sample
 ## Troubleshooting
 - Ensure `init(...)` is called before `connect/signMessage`
 - Verify `projectId` is valid and a wallet extension is available
-- If callbacks do not reach Unity, confirm `setUnityInstance(unityInstance)` runs after player creation, or use the sample’s `Web3BridgeSample` which auto-sets it on Start
+- If callbacks do not reach Unity, confirm `setUnityInstance(unityInstance)` runs after player creation, or use the sample’s `Web3BridgeSample` which auto-sets it on Start`

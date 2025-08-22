@@ -13,7 +13,10 @@ Choose one of the following:
 
 1) Add from Git URL (recommended)
 - Open Package Manager → + (Add) → Add package from git URL…
-- Use: `https://github.com/v17alya/Web3-Onboard-Unity.git?path=Assets/com.gamenator.web3-onboard-unity#v0.1.0`
+- Latest (tracks main):
+  `https://github.com/v17alya/Web3-Onboard-Unity.git?path=Assets/com.gamenator.web3-onboard-unity#main`
+- Pin to a specific tag (recommended for reproducibility):
+  `https://github.com/v17alya/Web3-Onboard-Unity.git?path=Assets/com.gamenator.web3-onboard-unity#v0.1.0`
 
 2) Add from disk
 - Open Package Manager → + (Add) → Add package from disk…
@@ -23,10 +26,32 @@ Choose one of the following:
 ```json
 {
   "dependencies": {
-    "com.gamenator.web3-onboard-unity": "https://github.com/v17alya/Web3-Onboard-Unity.git?path=Assets/com.gamenator.web3-onboard-unity#v0.1.0"
+    "com.gamenator.web3-onboard-unity": "https://github.com/v17alya/Web3-Onboard-Unity.git?path=Assets/com.gamenator.web3-onboard-unity#main"
   }
 }
 ```
+
+## Installation via npm registry (optional)
+If this package is published to npm, you can add a scoped registry and depend on a semver (e.g., latest):
+
+1) Edit `Packages/manifest.json`:
+```json
+{
+  "scopedRegistries": [
+    {
+      "name": "npmjs",
+      "url": "https://registry.npmjs.org",
+      "scopes": ["com.gamenator"]
+    }
+  ],
+  "dependencies": {
+    "com.gamenator.web3-onboard-unity": "^0.1.0"
+  }
+}
+```
+2) Or use Package Manager → + → Add package by name… and enter:
+- Name: `com.gamenator.web3-onboard-unity`
+- Version: `latest` (or a specific version like `0.1.0`)
 
 ## Getting Started
 1) Install the embedded bridge
