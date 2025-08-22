@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Web3-Onboard-Unity</title>
+    <title>{{{ PRODUCT_NAME }}}</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <style>
@@ -14,7 +14,7 @@
     </style>
     <script src="src/web3-onboard/web3-onboard-bridge.js"></script>
   </head>
-  <body class="dark">
+  <body class="{{{ SPLASH_SCREEN_STYLE.toLowerCase() }}}">
     <div id="controls">
       <button onclick="connect()">Connect</button>
       <button onclick="disconnectAll()">Disconnect</button>
@@ -74,17 +74,23 @@
       } catch (e) { console.error('Bridge init error:', e); }
 
       // Unity loader
-      const hideFullScreenButton = "";
+      const hideFullScreenButton = "{{{ HIDE_FULL_SCREEN_BUTTON }}}";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/sample-build.loader.js";
+      const loaderUrl = buildUrl + "/{{{ LOADER_FILENAME }}}";
       const config = {
-        dataUrl: buildUrl + "/sample-build.data",
-        frameworkUrl: buildUrl + "/sample-build.framework.js",
-        codeUrl: buildUrl + "/sample-build.wasm",
+        dataUrl: buildUrl + "/{{{ DATA_FILENAME }}}",
+        frameworkUrl: buildUrl + "/{{{ FRAMEWORK_FILENAME }}}",
+        codeUrl: buildUrl + "/{{{ CODE_FILENAME }}}",
+#if MEMORY_FILENAME
+        memoryUrl: buildUrl + "/{{{ MEMORY_FILENAME }}}",
+#endif
+#if SYMBOLS_FILENAME
+        symbolsUrl: buildUrl + "/{{{ SYMBOLS_FILENAME }}}",
+#endif
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "Web3-Onboard-Unity",
-        productVersion: "1.0",
+        companyName: "{{{ COMPANY_NAME }}}",
+        productName: "{{{ PRODUCT_NAME }}}",
+        productVersion: "{{{ PRODUCT_VERSION }}}",
       };
 
       const container = document.querySelector("#unity-container");
