@@ -13,8 +13,7 @@ Choose one of the following:
 
 1) Add from Git URL (recommended)
 - Open Package Manager → + (Add) → Add package from git URL…
-- Use: `https://github.com/<your-org>/<your-repo>.git?path=Assets/com.gamenator.web3-onboard-unity#v0.1.0`
-  - Replace `<your-org>/<your-repo>` and tag `#v0.1.0` as needed
+- Use: `https://github.com/v17alya/Web3-Onboard-Unity.git?path=Assets/com.gamenator.web3-onboard-unity#v0.1.0`
 
 2) Add from disk
 - Open Package Manager → + (Add) → Add package from disk…
@@ -24,7 +23,7 @@ Choose one of the following:
 ```json
 {
   "dependencies": {
-    "com.gamenator.web3-onboard-unity": "https://github.com/<your-org>/<your-repo>.git?path=Assets/com.gamenator.web3-onboard-unity#v0.1.0"
+    "com.gamenator.web3-onboard-unity": "https://github.com/v17alya/Web3-Onboard-Unity.git?path=Assets/com.gamenator.web3-onboard-unity#v0.1.0"
   }
 }
 ```

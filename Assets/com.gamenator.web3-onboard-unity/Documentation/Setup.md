@@ -7,7 +7,7 @@
 ## Install the package (UPM)
 Use one of the standard UPM methods:
 
-- Add from Git URL: `https://github.com/<your-org>/<your-repo>.git?path=Assets/com.gamenator/web3-onboard-unity#v0.1.0`
+- Add from Git URL: `https://github.com/v17alya/Web3-Onboard-Unity.git?path=Assets/com.gamenator.web3-onboard-unity#v0.1.0`
 - Add from disk: Package Manager → Add package from disk… → select `Assets/com.gamenator.web3-onboard-unity/package.json`
 - Edit `Packages/manifest.json` dependencies to include the Git URL above
 
