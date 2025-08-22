@@ -8,6 +8,18 @@
   "author": {
     "name": "Gamenator"
   },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/v17alya/Web3-Onboard-Unity.git"
+  },
+  "homepage": "https://github.com/v17alya/Web3-Onboard-Unity#readme",
+  "bugs": {
+    "url": "https://github.com/v17alya/Web3-Onboard-Unity/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "documentationUrl": "Documentation/Setup.md",
   "changelogUrl": "CHANGELOG.md",
   "licensesUrl": "../../LICENSE",
