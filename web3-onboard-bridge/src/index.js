@@ -149,7 +149,7 @@ import walletConnectModule from '@web3-onboard/walletconnect'
       return wallets
     } catch (e) {
       const msg = /** @type {any} */(e)?.message ?? 'Connect error'
-      sendToUnity('OnError', String(msg))
+      sendToUnity('OnConnectError', String(msg))
       throw e
     }
   }
@@ -168,7 +168,7 @@ import walletConnectModule from '@web3-onboard/walletconnect'
       sendToUnity('OnDisconnected', '')
     } catch (e) {
       const msg = /** @type {any} */(e)?.message ?? 'Disconnect error'
-      sendToUnity('OnError', String(msg))
+      sendToUnity('OnDisconnectError', String(msg))
       throw e
     }
   }
@@ -189,7 +189,7 @@ import walletConnectModule from '@web3-onboard/walletconnect'
       return sig
     } catch (e) {
       const msg = /** @type {any} */(e)?.message ?? 'Sign error'
-      sendToUnity('OnError', String(msg))
+      sendToUnity('OnSignError', String(msg))
       throw e
     }
   }
