@@ -27,6 +27,10 @@ This sample demonstrates a minimal end-to-end setup of the Web3-Onboard bridge i
 
 Optionally, you can customize the theme via `themeJson`.
 
+Also update the WebGL template `index.html` (loaded by the sample template):
+- Replace `YOUR_WC_PROJECT_ID` with your WalletConnect Project ID
+- Replace `YOUR_INFURA_PROJECT_ID` in the Ethereum Mainnet RPC (`https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID`) or remove that chain block if you don’t use Infura/Alchemy
+
 ## Build & Test
 1) Build for WebGL
 - File → Build Settings → Select your scene → Switch Platform (WebGL) → Build or Build And Run
