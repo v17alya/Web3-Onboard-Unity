@@ -3,19 +3,23 @@
 This sample demonstrates a minimal end-to-end setup of the Web3-Onboard bridge in a Unity WebGL project.
 
 ## What’s included
-- WebGL template: `Assets/com.gamenator.web3-onboard-unity/Samples/Minimal/WebGLTemplates/Web3OnboardSample/`
-  - Contains `index.html` that initializes `OnboardWalletBridge` and wires Unity instance after load
+- WebGL template package: located in the root of this sample folder
+  - Import this Unity package first so the template appears under `Assets/.../WebGLTemplates/Web3OnboardSample/`
+  - The template’s `index.html` initializes `OnboardWalletBridge` and wires the Unity instance after load
   - Includes a prebuilt `web3-onboard-bridge.js` for immediate testing
 - Sample script: `Assets/com.gamenator.web3-onboard-unity/Samples/Minimal/Scripts/Web3BridgeSample.cs`
   - Simple OnGUI with buttons to Initialize, Apply Theme, Connect, Disconnect, Sign
   - Logs Unity callbacks from the JS bridge
 
 ## Setup
-1) Select the sample WebGL template in Unity
+1) Import the WebGL template package
+- Double-click the Unity package in this sample’s root to import it into your project
+
+2) Select the sample WebGL template in Unity
 - Open: Edit → Project Settings → Player → Resolution and Presentation
 - Set Template to: `PROJECT:Web3OnboardSample`
 
-2) Configure WalletConnect Project ID
+3) Configure WalletConnect Project ID
 - Open a scene and add the component `Web3BridgeSample` to any GameObject
 - In the component, set `initOptionsJson` to include your `projectId`:
 ```json

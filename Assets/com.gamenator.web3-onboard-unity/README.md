@@ -31,28 +31,6 @@ Choose one of the following:
 }
 ```
 
-## Installation via npm registry (optional)
-If this package is published to npm, you can add a scoped registry and depend on a semver (e.g., latest):
-
-1) Edit `Packages/manifest.json`:
-```json
-{
-  "scopedRegistries": [
-    {
-      "name": "npmjs",
-      "url": "https://registry.npmjs.org",
-      "scopes": ["com.gamenator"]
-    }
-  ],
-  "dependencies": {
-    "com.gamenator.web3-onboard-unity": "^0.1.0"
-  }
-}
-```
-2) Or use Package Manager → + → Add package by name… and enter:
-- Name: `com.gamenator.web3-onboard-unity`
-- Version: `latest` (or a specific version like `0.1.0`)
-
 ## Getting Started
 1) Install the embedded bridge
 - Unity menu: Tools → Web3 Onboard → Install Embedded Bridge (writes to `Assets/StreamingAssets/Web3Onboard/`)
